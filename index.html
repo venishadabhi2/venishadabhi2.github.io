@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venisha Dabhi | Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    /* Navbar */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .logo span { color: #38bdf8; }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 500;
+      transition: .3s;
+    }
+
+    nav ul li a:hover { color: #38bdf8; }
+
+    /* Common sections */
+    section {
+      padding: 120px 8% 80px;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-margin-top: 75px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 45px;
+      color: #f8fafc;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #38bdf8;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Welcome / Hero */
+    #welcome-section {
+      min-height: 100vh;
+      height: 100vh;
+      background-image:
+        radial-gradient(circle at center, rgba(56, 189, 248, 0.1) 0%, transparent 70%),
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+        url('https://png.pngtree.com/thumb_back/fh260/background/20240914/pngtree-ai-technology-abstract-background-generative-art-creative-banner-concept-in-the-image_16208106.jpg');
+      background-size: cover;
+      background-position: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .profile {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 3px solid #38bdf8;
+      object-fit: cover;
+      margin-bottom: 25px;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .hero h3 {
+      color: #38bdf8;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #94a3b8;
+      font-size: 16px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: .3s;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* Cards */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 16px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card i {
+      font-size: 32px;
+      color: #38bdf8;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #f8fafc;
+    }
+
+    .card p {
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* Skills */
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .skill-list span {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #7dd3fc;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    /* Timeline */
+    .timeline {
+      max-width: 850px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      background: rgba(30, 41, 59, 0.6);
+      border-left: 4px solid #38bdf8;
+      padding: 25px;
+      border-radius: 0 12px 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .timeline-item h3 {
+      color: #f8fafc;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item .sub {
+      color: #38bdf8;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .timeline-item p {
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .highlight {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 7px 12px;
+      border-radius: 20px;
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.1);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Project links and certificate links */
+    .project-link, .cert-btn {
+      display: inline-block;
+      margin-top: 16px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .project-link:hover, .cert-btn:hover { color: #f8fafc; }
+
+    /* Contact and footer */
+    .contact-text {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 850px) {
+      #navbar {
+        padding: 15px 5%;
+        gap: 15px;
+      }
+
+      nav ul { gap: 14px; }
+      nav ul li a { font-size: 13px; }
+      .hero h1 { font-size: 42px; }
+    }
+
+    @media (max-width: 600px) {
+      #navbar {
+        flex-direction: column;
+        padding: 12px 4%;
+      }
+
+      nav ul {
+        justify-content: center;
+        gap: 10px 14px;
+      }
+
+      nav ul li a { font-size: 12px; }
+
+      #welcome-section {
+        padding: 150px 6% 50px;
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .profile {
+        width: 135px;
+        height: 135px;
+      }
+
+      .hero h1 { font-size: 34px; }
+      .hero h3 { font-size: 19px; }
+
+      section {
+        padding: 110px 6% 65px;
+      }
+
+      .section-title {
+        font-size: 27px;
+        margin-bottom: 32px;
+      }
+
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <a class="logo" href="#welcome-section">Venisha<span>.</span></a>
+    <ul>
+      <li><a href="#welcome-section">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home / Welcome Section -->
+  <section id="welcome-section" class="hero">
+    <img
+      src="WhatsApp Image 2026-11-01 at 4.21.43 PM.jpeg"
+      alt="Venisha Dabhi"
+      class="profile"
+      onerror="this.style.display='none'"
+    >
+
+    <h1>Hi, I'm Venisha Dabhi</h1>
+    <h3>Aspiring Web Developer</h3>
+
+    <p>
+      Computer Science Engineering student passionate about web development,
+      software technologies, and data analytics. I enjoy building responsive,
+      user-friendly applications and turning ideas into practical solutions.
+    </p>
+
+    <div class="btn-container">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="Venisha_Dabhi_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file-arrow-down"></i> Resume
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <i class="fa-solid fa-user-graduate"></i>
+        <h3>Who I Am</h3>
+        <p>
+          I'm a Computer Science Engineering student at Shree Sitaram
+          Naranjibhai Patel Institute of Technology. I enjoy learning new
+          technologies and improving my technical and problem-solving skills.
+        </p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-code"></i>
+        <h3>Web Development</h3>
+        <p>
+          I work with HTML, CSS and JavaScript to build clean, responsive
+          and user-friendly front-end experiences. I'm interested in growing
+          as a Frontend / Full Stack Developer.
+        </p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-chart-pie"></i>
+        <h3>Data & AI</h3>
+        <p>
+          I have explored Data Analytics and Generative AI through internship
+          experience and projects, including dashboard development and an
+          AI-based interview platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background: rgba(15, 23, 42, 0.5);">
+    <h2 class="section-title">My Skills</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Web Technologies</h3>
+        <div class="skill-list">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript (ES6)</span>
+          <span>Responsive Web Design</span>
+          <span>DOM Manipulation</span>
+          <span>Flexbox & Grid</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-terminal"></i>
+        <h3>Programming & Database</h3>
+        <div class="skill-list">
+          <span>Python</span>
+          <span>JavaScript</span>
+          <span>Java (Basic)</span>
+          <span>SQL</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <h3>Tools & Platforms</h3>
+        <div class="skill-list">
+          <span>VS Code</span>
+          <span>Power BI</span>
+          <span>MS Excel</span>
+          <span>Git</span>
+          <span>GitHub</span>
+          <span>Chrome DevTools</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-brain"></i>
+        <h3>Core Concepts</h3>
+        <div class="skill-list">
+          <span>OOP</span>
+          <span>Machine Learning Basics</span>
+          <span>Data Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="grid-cards">
+      <div class="card project-tile">
+        <i class="fa-solid fa-robot"></i>
+        <h3>InterviewIQ AI</h3>
+        <p>
+          Built an AI-based interview platform with personalized questions,
+          interactive speech and vision components, multimodal candidate
+          scoring, and downloadable performance reports.
+        </p>
+        <a class="project-link" href="https://github.com/venishadabhi2/InterviewIQ_AI" target="_blank" rel="noopener noreferrer">
+          View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <div class="card project-tile">
+        <i class="fa-solid fa-chart-column"></i>
+        <h3>EchoChain – Data Analytics Dashboard</h3>
+        <p>
+          Created an interactive Power BI dashboard analyzing laptop prices
+          across processor, RAM, brand and condition for more than 300 records,
+          with KPIs, charts and slicers.
+        </p>
+        <a class="project-link" href="https://github.com/venishadabhi2/Echochain-project" target="_blank" rel="noopener noreferrer">
+          View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <div class="card project-tile">
+        <i class="fa-solid fa-recycle"></i>
+        <h3>Waste Monitoring System</h3>
+        <p>
+          Designed an IoT-based waste monitoring system for wet and dry waste
+          detection using sensors and Arduino UNO, with a companion website
+          for displaying waste levels and monitoring status.
+        </p>
+      </div>
+
+      <div class="card project-tile">
+        <i class="fa-solid fa-globe"></i>
+        <h3>Personal Portfolio Website</h3>
+        <p>
+          Designed a responsive personal portfolio to showcase my skills,
+          education, internship experience and development projects using
+          HTML and CSS.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" style="background: rgba(15, 23, 42, 0.5);">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Bachelor of Engineering – Computer Science Engineering</h3>
+        <div class="sub">
+          Shree Sitaram Naranjibhai Patel Institute of Technology,
+          Umrakh, Bardoli
+        </div>
+        <p>Gujarat Technological University (GTU)</p>
+        <p>2023 – 2027</p>
+        <span class="highlight">CGPA: 8.2 / 10</span>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Higher Secondary (12th)</h3>
+        <div class="sub">Shree Vasistha Vidhayalaya – GSEB Board</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internship Experience -->
+  <section id="internships">
+    <h2 class="section-title">Internship Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Generative AI Intern</h3>
+        <div class="sub">Edunet Foundation · July 2026</div>
+        <p>
+          Completed a 15-day virtual internship in collaboration with
+          Microsoft, covering Machine Learning and OOP concepts using Python.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Data Analytics Intern</h3>
+        <div class="sub">Infotact Solutions · August 2026</div>
+        <p>
+          Completed a 2-month internship and developed EchoChain, a data
+          analytics dashboard for processing and visualizing datasets.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates">
+    <h2 class="section-title">Certificates</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <i class="fa-solid fa-certificate"></i>
+        <h3>Responsive Web Design</h3>
+        <p>Certification in responsive web design fundamentals.</p>
+        <a href="certificate1.pdf" target="_blank" rel="noopener noreferrer" class="cert-btn">
+          View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-award"></i>
+        <h3>Python for Data Analysis</h3>
+        <p>Certificate covering Python concepts for data analysis.</p>
+        <a href="certificate6.jpg.jpeg" target="_blank" rel="noopener noreferrer" class="cert-btn">
+          View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-award"></i>
+        <h3>Generative AI – Edunet Foundation</h3>
+        <p>Generative AI internship certification in collaboration with Microsoft.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Data Analytics – Infotact Solutions</h3>
+        <p>Certification associated with Data Analytics internship experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background: rgba(15, 23, 42, 0.5);">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="contact-text">
+      I'm open to learning opportunities, collaborations and internships
+      in Frontend or Full Stack Development. Feel free to connect with me.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:venishadabhi02@gmail.com" style="background: rgba(30, 41, 59, 0.8); padding: 12px 20px; border-radius: 30px; border: 1px solid rgba(56, 189, 248, 0.3);">
+        <i class="fa-solid fa-envelope"></i> venishadabhi02@gmail.com
+      </a>
+      <a href="https://github.com/venishadabhi2" id="profile-link" target="_blank" rel="noopener noreferrer" style="background: rgba(30, 41, 59, 0.8); padding: 12px 20px; border-radius: 30px; border: 1px solid rgba(56, 189, 248, 0.3);">
+        <i class="fa-brands fa-github"></i> github.com/venishadabhi2
+      </a>
+      <a href="https://linkedin.com/in/venisha-dabhi02" target="_blank" rel="noopener noreferrer" style="background: rgba(30, 41, 59, 0.8); padding: 12px 20px; border-radius: 30px; border: 1px solid rgba(56, 189, 248, 0.3);">
+        <i class="fa-brands fa-linkedin"></i> in/venisha-dabhi02
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Venisha Dabhi.</p>
+  </footer>
+</body>
+</html>
